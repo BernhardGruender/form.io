@@ -1,0 +1,862 @@
+{
+  "type": "form",
+  "display": "form",
+  "title": "Öffnungszeiten",
+  "name": "openingHours",
+  "path": "opening-hours",
+  "components": [
+    {
+      "type": "content",
+      "key": "headerContent",
+      "html": "<h1 style='text-align: center; font-size: 2.25rem; font-weight: bold; margin-bottom: 0.5rem;'>Öffnungszeiten</h1><p style='text-align: center; color: #6b7280; margin-bottom: 2rem;'>Bitte geben Sie Ihre Öffnungszeiten ein.</p>",
+      "input": false
+    },
+    {
+      "type": "content",
+      "key": "heroImage",
+      "html": "<div style='margin-bottom: 2rem; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);'><img src='https://www.stihl.de/content/dam/stihl/stihl-de/2024-images/homepage-2024/service-reparatur/service-reparatur-16-9.jpg' alt='STIHL Werkstatt' style='width: 100%; height: 16rem; object-fit: cover;' /></div>",
+      "input": false
+    },
+    {
+      "type": "panel",
+      "title": "Wochenplan",
+      "key": "weeklySchedule",
+      "theme": "default",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "fieldset",
+          "key": "monday",
+          "legend": "Montag",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "mondayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "mondayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": false
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "mondayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "mondayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "mondayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "mondaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "required": false,
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              },
+                              "customClass": "time-input"
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "mondayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "mondaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "required": false,
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              },
+                              "customClass": "time-input"
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "mondayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm",
+                              "customClass": "add-slot-button"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "columns",
+                      "key": "mondayTimeSlot2",
+                      "hidden": true,
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "mondayFromLabel2",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "mondaySlot2From",
+                              "placeholder": "14:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              },
+                              "customClass": "time-input"
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "mondayToLabel2",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "mondaySlot2To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              },
+                              "customClass": "time-input"
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "mondayRemoveSlot2",
+                              "label": "✕",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "key": "applyToAll",
+              "label": "Für alle Tage übernehmen",
+              "action": "event",
+              "theme": "default",
+              "size": "sm",
+              "block": false,
+              "customClass": "apply-to-all-button"
+            }
+          ]
+        },
+        {
+          "type": "fieldset",
+          "key": "tuesday",
+          "legend": "Dienstag",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "tuesdayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "tuesdayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": false
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "tuesdayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "tuesdayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "tuesdayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "tuesdaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "tuesdayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "tuesdaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "tuesdayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fieldset",
+          "key": "wednesday",
+          "legend": "Mittwoch",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "wednesdayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "wednesdayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": false
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "wednesdayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "wednesdayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "wednesdayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "wednesdaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "wednesdayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "wednesdaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "wednesdayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fieldset",
+          "key": "thursday",
+          "legend": "Donnerstag",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "thursdayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "thursdayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": false
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "thursdayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "thursdayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "thursdayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "thursdaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "thursdayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "thursdaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "thursdayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fieldset",
+          "key": "friday",
+          "legend": "Freitag",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "fridayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "fridayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": false
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "fridayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "fridayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "fridayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "fridaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "fridayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "fridaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "fridayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fieldset",
+          "key": "saturday",
+          "legend": "Samstag",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "saturdayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "saturdayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": false
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "saturdayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "saturdayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "saturdayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "saturdaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "saturdayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "saturdaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "saturdayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fieldset",
+          "key": "sunday",
+          "legend": "Sonntag",
+          "customClass": "opening-hours-day",
+          "components": [
+            {
+              "type": "columns",
+              "key": "sundayColumns",
+              "columns": [
+                {
+                  "width": 2,
+                  "components": [
+                    {
+                      "type": "checkbox",
+                      "key": "sundayClosed",
+                      "label": "Geschlossen",
+                      "input": true,
+                      "defaultValue": true
+                    }
+                  ]
+                },
+                {
+                  "width": 10,
+                  "components": [
+                    {
+                      "type": "columns",
+                      "key": "sundayTimeSlots",
+                      "conditional": {
+                        "show": true,
+                        "when": "sundayClosed",
+                        "eq": false
+                      },
+                      "columns": [
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "sundayFromLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>von</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "sundaySlot1From",
+                              "placeholder": "08:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "content",
+                              "key": "sundayToLabel1",
+                              "html": "<span style='font-size: 0.75rem; color: #6b7280;'>bis</span>",
+                              "input": false
+                            }
+                          ]
+                        },
+                        {
+                          "width": 2,
+                          "components": [
+                            {
+                              "type": "textfield",
+                              "key": "sundaySlot1To",
+                              "placeholder": "18:00",
+                              "input": true,
+                              "validate": {
+                                "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "width": 4,
+                          "components": [
+                            {
+                              "type": "button",
+                              "key": "sundayAddSlot2",
+                              "label": "+ 2. Zeitraum",
+                              "action": "event",
+                              "theme": "default",
+                              "size": "sm"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "key": "submit",
+      "label": "Öffnungszeiten speichern",
+      "action": "submit",
+      "theme": "primary",
+      "size": "md",
+      "block": true,
+      "customClass": "submit-button"
+    }
+  ]
+}
